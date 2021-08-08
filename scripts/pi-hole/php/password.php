@@ -26,6 +26,15 @@
     {
         $pwhash = "";
     }
+    // Try to read persisitent login duration (in days)
+    if(isset($setupVars['LOGINEXPIRY']))
+    {
+        $loginexpiry = $setupVars['LOGINEXPIRY'];
+    }
+    else
+    {
+        $loginexpiry = 7;
+    }
 
     // If the user wants to log out, we free all session variables currently registered
     // and delete any persistent cookie.
@@ -50,7 +59,7 @@
             {
                 $auth = true;
                 // Refresh cookie with new expiry
-                setcookie('persistentlogin', $pwhash, time()+60*60*24*7);
+                setcookie('persistentlogin', $pwhash, time()+60*60*24*$loginexpiry);
             }
             else
             {

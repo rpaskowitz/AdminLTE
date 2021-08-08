@@ -46,7 +46,7 @@
           <div class="col-xs-12 col-md-4">
             <div>
               <input type="checkbox" id="logincookie" name="persistentlogin">
-              <label for="logincookie">Remember me for 7 days</label>
+              <label for="logincookie">Remember me for <?php echo $setupVars['LOGINEXPIRY']; ?> days</label>
             </div>
           </div>
         </div>
